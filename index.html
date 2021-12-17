@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Lab 4</title>
+</head>
+
+<body class="container">
+    <div class="panel">
+        <h1>JS Calculator</h1>
+        <div>
+            <label for="num1">Number 1</label><br>
+            <input type="text" placeholder="first number" id="num1">
+        </div>
+        <div>
+            <label for="num2">Number 2</label><br>
+            <input type="text" placeholder="second number" id="num2">
+        </div>
+        <div>
+            <label for="operator">Operate way?</label><br>
+            <select id="operator">
+                <option value="+" selected>+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        </div>
+        <div>
+            <button id="operate-btn">Add</button>
+            <p id="result">Result=</p>
+        </div>
+    </div>
+    <script>
+        var operateBtn = document.getElementById("operate-btn");
+        var select = document.getElementById("operator");
+        var operator;
+        // add event listner when selection change
+        select.addEventListener("change", changeValueOfBtn);
+        // add event listener for the button
+        operateBtn.addEventListener("click", function() {
+            operator = getOperator();
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+            var result = getResult(operator, num1, num2);
+            document.getElementById("result").innerHTML = "Result= " + result;
+        })
+
+        function getOperator() {
+            var option = select.options[select.selectedIndex];
+            return option.value;
+        }
+
+        function getResult(operator, num1, num2) {
+            var result;
+            var num1 = parseFloat(num1);
+            var num2 = parseFloat(num2);
+            if (operator == "+") {
+                // add
+                result = num1 + num2;
+            } else if (operator == "-") {
+                // minus
+                result = num1 - num2;
+            } else if (operator == "*") {
+                //multiply
+                result = num1 * num2;
+            } else {
+                // divide
+                result = num1 / num2;
+            }
+            return result;
+        }
+
+        function changeValueOfBtn() {
+            var newValue = "";
+            operator = getOperator();
+            if (operator == "+") {
+                newValue = "Add"
+            } else if (operator == "-") {
+                newValue = "Minus"
+            } else if (operator == "*") {
+                newValue = "Multiply"
+            } else {
+                newValue = "Divide"
+            }
+            operateBtn.innerHTML = newValue;
+        }
+
+    </script>
+</body>
+
+</html>

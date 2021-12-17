@@ -1,0 +1,37 @@
+.container {
+    background-color: #f2f2f3;
+}
+
+input[type="text"] {
+    width: 50%;
+}
+
+.panel {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: #000000 solid 1px;
+    border-radius: 3%;
+}
+
+.panel div {
+    margin-bottom: 3%;
+}
+
+.panel div label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#operator {
+    width: 20%;
+}
+
+#operate-btn {
+    width: 35%;
+    border-radius: 2%;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #a76f41;
+}
