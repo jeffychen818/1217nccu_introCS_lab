@@ -52,23 +52,32 @@
             var option = select.options[select.selectedIndex];
             return option.value;
         }
+		
+		function add(a, b) {
+			return a + b;
+		}
+		function minus(a, b) {
+			return a - b;
+		}
+		function multiply(a, b) {
+			return a * b;
+		}
+		function divide(a, b) {
+			return a / b;
+		}
 
         function getResult(operator, num1, num2) {
             var result;
             var num1 = parseFloat(num1);
             var num2 = parseFloat(num2);
             if (operator == "+") {
-                // add
-                result = num1 + num2;
+                result = add(num1, num2)
             } else if (operator == "-") {
-                // minus
-                result = num1 - num2;
+                result = minus(num1, num2);
             } else if (operator == "*") {
-                //multiply
-                result = num1 * num2;
+                result = multiply(num1, num2)
             } else {
-                // divide
-                result = num1 / num2;
+                result = divide(num1, num2)
             }
             return result;
         }
